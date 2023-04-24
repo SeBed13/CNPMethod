@@ -1,6 +1,7 @@
 import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
     public static boolean isCNPValid(int length){
@@ -161,7 +162,7 @@ public class Main {
         Date date = new Date();
 
         String currentDate = format.format(date);
-        System.out.println("Current day is:" + currentDate);
+        System.out.println("Current day is: " + currentDate);
         String[] currentDateFormatted = formatDateAsString(currentDate);
 
         int currentDay = Integer.parseInt(currentDateFormatted[0]);
@@ -191,7 +192,10 @@ public class Main {
         return sex;
     }
     public static void main(String[] args) {
-       String socialNumber = "1960320086324";
+        Scanner cnp = new Scanner(System.in);
+        System.out.println("Enter a CNP: ");
+        String socialNumber = cnp.next();
+
         isCNPValid(socialNumber.length());
         System.out.println("CNP:" + socialNumber);
         System.out.println("Sex: " + genderByCNP(socialNumber));
